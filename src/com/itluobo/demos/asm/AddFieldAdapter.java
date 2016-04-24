@@ -40,6 +40,6 @@ public class AddFieldAdapter extends ClassVisitor{
     }
 
     public static void main(String[] args) {
-        AddFieldAdapter addFieldAdapter = new AddFieldAdapter()
+        //AddFieldAdapter addFieldAdapter = new AddFieldAdapter()
     }
 }

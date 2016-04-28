@@ -32,8 +32,8 @@ public class ClassWriteDemo implements Opcodes{
             mv.visitMethodInsn(INVOKESPECIAL,
                     "java/lang/Object",
                     "<init>",
-                    "()V",
-                    false);
+                    "()V");
+                    //false);
             mv.visitInsn(RETURN);
             mv.visitMaxs(1,1);
             mv.visitEnd();
@@ -53,8 +53,8 @@ public class ClassWriteDemo implements Opcodes{
             mv.visitMethodInsn(INVOKESPECIAL,
                     "java/io/PrintStream",
                     "println",
-                    "(Ljava/lang/String;)V",
-                    false);
+                    "(Ljava/lang/String;)V");
+                    //false);
             mv.visitInsn(RETURN);
             mv.visitMaxs(2, 1);
             mv.visitEnd();

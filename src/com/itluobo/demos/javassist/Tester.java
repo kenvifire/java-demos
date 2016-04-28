@@ -54,10 +54,8 @@ public class Tester {
         CtClass ctClass = pool.get(targetClassName);
         CtMethod method = ctClass.getDeclaredMethod(targetMethodName);
 
-        //从原方法复制产生一个新的方法
         CtMethod newMethod = CtNewMethod.copy(method, ctClass, null);
 
-        //重命名原方法
         String methodName = method.getLongName();
         String oldName = method.getName()+ "$Impl";
 
@@ -65,7 +63,6 @@ public class Tester {
         StringBuilder body = new StringBuilder();
         body.append( "{long start = System.currentTimeMillis();" );
 
-        //如果有返回值，则记录返回值，没有则不记录
         if(method.getReturnType()==CtClass. voidType){
             body.append( oldName+ "($$);");
         } else{
@@ -75,7 +72,6 @@ public class Tester {
                 + "System.out.println(\"" +methodName+ "\""+
                 "\"time used:\"+" + "(end - start));" );
 
-        //如果有返回值，则添加return 语句
         if(method.getReturnType()==CtClass. voidType){
             body.append( "}");
         } else{
@@ -95,10 +91,8 @@ public class Tester {
         CtClass ctClass = pool.get(targetClassName);
         CtMethod method = ctClass.getDeclaredMethod(targetMethodName);
 
-        //从原方法复制产生一个新的方法
         CtMethod newMethod = CtNewMethod.copy(method, ctClass, null);
 
-        //重命名原方法
         String oldName = method.getName()+ "$Impl";
         method.setName(oldName);
 
@@ -110,7 +104,6 @@ public class Tester {
                     .append(entry.getValue()).append(";");
         }
 
-        //如果有返回值，则记录返回值，没有则不记录
         if(method.getReturnType()==CtClass. voidType){
             body.append( oldName).append("($$);");
         } else{
